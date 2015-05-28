@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+  id="cordova-plugin-device" version="0.2.3">
+  <name>Notification Creator</name>
+  <description>Creates notifications through native OS interface</description>
+  <license>Apache 2.0</license>
+  <keywords>cordova,notifications</keywords>
+  <js-module src="www/notifications.js" name="notifications">
+    <clobbers target="notifications" />
+  </js-module>
+  <platform name="ios">
+    <config-file target="config.xml" parent="/*">
+      <feature name="Notifications">
+        <param name="ios-package" value="CDVNotifications"/>
+      </feature>
+    </config-file>
+    <header-file src="src/ios/CDVNotifcations.h" />
+    <source-file src="src/ios/CDVNotifications.m" />
+  </platform>
+</plugin>
